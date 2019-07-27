@@ -23,7 +23,12 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
         // sender is the button that triggered the action/event
         
         let tag = sender.tag;
-        let soundURL = Bundle.main.url(forResource: "note\(tag)", withExtension: "wav")
+        playSound(buttonId : tag)
+        
+    }
+    
+    func playSound(buttonId : Int) -> Void {
+        let soundURL = Bundle.main.url(forResource: "note\(buttonId)", withExtension: "wav")
         
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: soundURL!)
